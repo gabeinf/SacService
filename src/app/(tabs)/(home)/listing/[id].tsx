@@ -1,14 +1,21 @@
 import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
 } from "react-native";
 
- import { router } from "expo-router";
+import { listings } from "@/data/listings";
+import { router, useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function ListingDetails () {
+
+
+    const { id } = useLocalSearchParams();
+
+    const listing = listings.find((l) => l.id === id)
+
     return (
 
     <>
@@ -18,6 +25,7 @@ export default function ListingDetails () {
         onPress={() => router.back()}
       >
         <Text style={styles.backText}>← Back</Text>
+        <Text>{listing?.name}</Text>
       </Pressable>
 
       <View style={styles.container}>

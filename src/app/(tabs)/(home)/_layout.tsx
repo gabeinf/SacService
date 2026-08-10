@@ -6,8 +6,7 @@ export default function ProfileLayout() {
       headerShown: false,
       headerBackButtonDisplayMode: "minimal"
     }}>
-      <Stack.Screen name="Home"/>
-      <Stack.Screen name="Listing Details" />
+      <Stack.Screen name="listing/[id].tsx" />
     </Stack>
   )
 }
